@@ -5,16 +5,17 @@ import (
 	"fmt"
 	"os"
 
-	r "github.com/kshwedha/teknight_bc/"
+	"teknight_bc/config"
+	"teknight_bc/src/server"
 )
 
 func main() {
-	// environment := flag.String("e", "dev", "")
+	environment := flag.String("e", "dev", "")
 	flag.Usage = func() {
 		fmt.Println("Usage: server -e {mode}")
 		os.Exit(1)
 	}
 	flag.Parse()
-	// config.Init(*environment)
-	server.Init()
+	config.Init(*environment)
+	server.Serve()
 }
